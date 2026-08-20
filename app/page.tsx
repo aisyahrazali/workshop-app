@@ -7,9 +7,9 @@ import { brand } from "@/lib/config/brand";
 // Edit the words below, or reorder the sections in SECTION_ORDER.
 // ─────────────────────────────────────────────────────────────
 
-const headline = "Keep track of the stuff that matters.";
+const headline = "Your things. Beautifully simple.";
 const subcopy =
-  "A private list that's yours alone. Add notes, ideas and reminders — they're saved securely and only you can see them.";
+  "A clean, private space for notes and ideas — no clutter, no noise, just what matters.";
 
 const howItWorks = [
   { title: "1. Create an account", text: "Sign up with just an email and a password." },
