@@ -17,5 +17,5 @@ export async function GET(request: NextRequest) {
   }
 
   const { error } = await supabase.auth.verifyOtp({ type, token_hash: tokenHash });
-  return NextResponse.redirect(error ? `${siteUrl}/login?error=confirm` : `${siteUrl}/app`);
+  return NextResponse.redirect(error ? `${siteUrl}/login?error=confirm` : `${siteUrl}/menu`);
 }

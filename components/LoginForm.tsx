@@ -7,7 +7,13 @@ import { brand } from "@/lib/config/brand";
 import { getSupabaseBrowserClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import BackendNotConnected from "./BackendNotConnected";
 
-export default function LoginForm({ confirmError = false }: { confirmError?: boolean }) {
+export default function LoginForm({
+  confirmError = false,
+  next,
+}: {
+  confirmError?: boolean;
+  next?: string;
+}) {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,7 +34,7 @@ export default function LoginForm({ confirmError = false }: { confirmError?: boo
       setError("Sign-in failed. Check your email and password and try again.");
       return;
     }
-    router.push("/app");
+    router.push(next ?? "/menu");
     router.refresh();
   }
 

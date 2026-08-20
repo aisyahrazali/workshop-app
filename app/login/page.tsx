@@ -1,16 +1,16 @@
-import BrandHeader from "@/components/BrandHeader";
 import LoginForm from "@/components/LoginForm";
 
 export default async function LoginPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; next?: string }>;
 }) {
-  const { error } = await searchParams;
+  const { error, next } = await searchParams;
+  // Only allow same-site paths as a post-login destination.
+  const safeNext = next && next.startsWith("/") && !next.startsWith("//") ? next : undefined;
   return (
-    <div className="min-h-screen bg-white">
-      <BrandHeader />
-      <LoginForm confirmError={error === "confirm"} />
+    <div className="flex-1 bg-white">
+      <LoginForm confirmError={error === "confirm"} next={safeNext} />
     </div>
   );
 }

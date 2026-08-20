@@ -38,7 +38,7 @@ export default function SignupForm() {
     }
     if (data.session) {
       // Email confirmation is OFF (the workshop default) — signed in already.
-      router.push("/app");
+      router.push("/menu");
       router.refresh();
     } else {
       // Email confirmation is ON — tell the user to check their inbox.

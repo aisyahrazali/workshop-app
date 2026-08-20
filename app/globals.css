@@ -16,3 +16,54 @@ body {
   background: var(--background);
   color: var(--foreground);
 }
+
+/* Entrance + feedback animations. Disabled for reduced-motion users. */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.45s ease-out both;
+}
+
+.animate-pop {
+  animation: pop 0.3s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-pop {
+    animation: none;
+  }
+}
+
+/* When printing a receipt, hide the app chrome and print just the slip. */
+@media print {
+  header,
+  .no-print {
+    display: none !important;
+  }
+  .receipt-print {
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
